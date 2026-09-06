@@ -1,0 +1,31 @@
+package com.expenses.portal.api;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.expenses.portal.dto.RegisterDTO;
+import com.expenses.portal.exception.ExpensesException;
+import com.expenses.portal.response.dto.RegisterResponseDTO;
+import com.expenses.portal.service.RegisterService;
+
+@RestController
+@RequestMapping("/auth")
+public class RegisterAPI {
+
+    private final RegisterService registerService;
+
+    public RegisterAPI(RegisterService registerService) {
+        this.registerService = registerService;
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<RegisterResponseDTO> register(@RequestBody RegisterDTO registerDTO)throws ExpensesException {
+
+        RegisterResponseDTO response =registerService.register(registerDTO);
+
+        return new ResponseEntity<>(response,HttpStatus.CREATED);
+    }
+}

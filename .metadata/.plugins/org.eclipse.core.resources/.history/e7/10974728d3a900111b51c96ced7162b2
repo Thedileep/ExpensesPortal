@@ -1,0 +1,7 @@
+package com.expenses.portal.exception;
+
+public class ExpensesException extends Exception {
+	public ExpensesException(String msg)  {
+		super(msg);
+	}
+}

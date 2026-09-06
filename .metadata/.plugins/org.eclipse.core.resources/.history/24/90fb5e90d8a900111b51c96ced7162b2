@@ -1,0 +1,7 @@
+package com.expenses.portal.serviceimpl;
+
+import com.expenses.portal.service.LoginService;
+
+public class LoginServiceImpl implements LoginService {
+
+}

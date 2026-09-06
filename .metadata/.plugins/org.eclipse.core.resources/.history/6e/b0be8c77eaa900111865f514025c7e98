@@ -1,0 +1,23 @@
+package com.expenses.portal.repository;
+
+import java.time.LocalDate;
+import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.expenses.portal.entity.ExpensesEntity;
+
+public interface ExpenseRepository extends JpaRepository<ExpensesEntity, Long> {
+
+    List<ExpensesEntity> findByUserUsername(String username);
+
+    List<ExpensesEntity> findByUserUsernameAndExpenseDateBetween(
+            String username,
+            LocalDate startDate,
+            LocalDate endDate);
+
+    List<ExpensesEntity> findByUserUsernameAndExpenseDateBetweenOrderByExpenseDateDesc(
+            String username,
+            LocalDate startDate,
+            LocalDate endDate);
+}

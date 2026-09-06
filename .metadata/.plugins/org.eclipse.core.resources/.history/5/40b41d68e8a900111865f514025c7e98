@@ -1,0 +1,5 @@
+package com.expenses.portal.security;
+
+public class GenerateKey {
+
+}

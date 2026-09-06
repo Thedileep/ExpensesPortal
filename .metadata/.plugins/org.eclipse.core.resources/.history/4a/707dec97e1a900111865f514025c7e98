@@ -1,0 +1,5 @@
+package com.expenses.portal.response.dto;
+
+public class RegisterResponse {
+
+}

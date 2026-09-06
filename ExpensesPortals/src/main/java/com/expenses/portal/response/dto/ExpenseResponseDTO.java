@@ -1,0 +1,74 @@
+package com.expenses.portal.response.dto;
+
+import java.time.LocalDate;
+
+public class ExpenseResponseDTO {
+
+    private Long id;
+    private Double amount;
+    private String category;
+    private String description;
+    private LocalDate expenseDate;
+    private String paymentMethod;
+
+    public ExpenseResponseDTO() {
+    }
+
+    public ExpenseResponseDTO(Long id, Double amount,String category, String description,LocalDate expenseDate,String paymentMethod) {
+
+        this.id = id;
+        this.amount = amount;
+        this.category = category;
+        this.description = description;
+        this.expenseDate = expenseDate;
+        this.paymentMethod = paymentMethod;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getExpenseDate() {
+        return expenseDate;
+    }
+
+    public void setExpenseDate(LocalDate expenseDate) {
+        this.expenseDate = expenseDate;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+}

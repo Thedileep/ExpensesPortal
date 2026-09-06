@@ -1,0 +1,9 @@
+package com.expenses.portal.repository;
+
+import com.expenses.portal.dto.RegisterDTO;
+import com.expenses.portal.response.dto.RegisterResponseDTO;
+
+public interface RegisterRepository {
+    RegisterResponseDTO register(RegisterDTO registerDTO)throws ExpensesException;
+
+}

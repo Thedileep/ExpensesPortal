@@ -1,0 +1,11 @@
+package com.expenses.portal.utility;
+
+public class LoggingAspect {
+	  private static final Log LOGGER = LogFactory.getLog(LoggingAspect.class);
+
+	    public void logServiceException(UserDataException exception)
+	    {
+
+	    }
+
+}

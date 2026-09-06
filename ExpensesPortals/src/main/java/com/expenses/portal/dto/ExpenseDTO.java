@@ -1,0 +1,64 @@
+package com.expenses.portal.dto;
+
+import java.time.LocalDate;
+
+public class ExpenseDTO {
+
+    private Double amount;
+    private String category;
+    private String description;
+    private LocalDate expenseDate;
+    private String paymentMethod;
+
+    public ExpenseDTO() {
+    }
+
+    public ExpenseDTO(Double amount, String category,String description, LocalDate expenseDate,String paymentMethod) {
+
+        this.amount = amount;
+        this.category = category;
+        this.description = description;
+        this.expenseDate = expenseDate;
+        this.paymentMethod = paymentMethod;
+    }
+
+    public Double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Double amount) {
+        this.amount = amount;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDate getExpenseDate() {
+        return expenseDate;
+    }
+
+    public void setExpenseDate(LocalDate expenseDate) {
+        this.expenseDate = expenseDate;
+    }
+
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+}

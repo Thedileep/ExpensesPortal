@@ -1,0 +1,16 @@
+package com.expenses.portal;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.expenses.portal.security.GenerateKey;
+
+@SpringBootApplication
+public class ExpensesPortalsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(ExpensesPortalsApplication.class, args);
+		GenerateKey
+	}
+
+}

@@ -1,0 +1,5 @@
+package com.expenses.portal.utility;
+
+public class GlobalException {
+
+}

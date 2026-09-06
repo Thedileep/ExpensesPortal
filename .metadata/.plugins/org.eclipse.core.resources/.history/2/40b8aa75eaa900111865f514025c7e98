@@ -1,0 +1,5 @@
+package com.expenses.portal.service;
+
+public interface ExpenseService {
+
+}

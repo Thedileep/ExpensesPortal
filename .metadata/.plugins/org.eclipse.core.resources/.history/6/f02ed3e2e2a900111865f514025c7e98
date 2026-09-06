@@ -1,0 +1,66 @@
+package com.expenses.portal.serviceimpl;
+
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import com.expenses.portal.dto.RegisterDTO;
+import com.expenses.portal.entity.LoginEntity;
+import com.expenses.portal.exception.ExpensesException;
+import com.expenses.portal.repository.LoginRepository;
+import com.expenses.portal.response.dto.RegisterResponseDTO;
+import com.expenses.portal.service.RegisterService;
+
+@Service
+public class RegisterServiceImpl implements RegisterService {
+
+    private final LoginRepository loginRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public RegisterServiceImpl(LoginRepository loginRepository,
+                               PasswordEncoder passwordEncoder) {
+        this.loginRepository = loginRepository;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+    @Override
+    public RegisterResponseDTO register(RegisterDTO registerDTO)
+            throws ExpensesException {
+
+        // Check username
+        if (loginRepository.existsByUsername(registerDTO.getUsername())) {
+            throw new ExpensesException("Username already exists");
+        }
+
+        // Check email
+        if (loginRepository.existsByEmail(registerDTO.getEmail())) {
+            throw new ExpensesException("Email already exists");
+        }
+
+        // Create entity
+        LoginEntity user = new LoginEntity();
+
+        user.setUsername(registerDTO.getUsername());
+        user.setEmail(registerDTO.getEmail());
+
+        // IMPORTANT: Never save plain password
+        user.setPassword(
+                passwordEncoder.encode(registerDTO.getPassword())
+        );
+
+        user.setFullName(registerDTO.getFullName());
+
+        // Default role
+        user.setRole("ROLE_USER");
+
+        // Save user
+        LoginEntity savedUser = loginRepository.save(user);
+
+        // Response
+        return new RegisterResponseDTO(
+                savedUser.getId(),
+                savedUser.getUsername(),
+                savedUser.getEmail(),
+                savedUser.getFullName(),
+                savedUser.getRole()
+        );
+    }
+}

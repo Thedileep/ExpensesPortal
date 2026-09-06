@@ -1,0 +1,5 @@
+package com.expenses.portal.api;
+
+public class RegisterAPI {
+
+}

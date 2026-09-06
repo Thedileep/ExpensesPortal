@@ -1,0 +1,10 @@
+package com.expenses.portal.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.expenses.portal.entity.Register;
+
+public interface RegisterRepository extends JpaRepository<Register, Long>{
+   
+
+}

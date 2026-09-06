@@ -1,0 +1,19 @@
+package com.expenses.portal.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.expenses.portal.entity.LoginEntity;
+
+public interface LoginRepository extends JpaRepository<LoginEntity, Long> {
+	  Optional<LoginEntity> findByUserName(String username);
+
+	    Optional<LoginEntity> findByEmail(String email);
+
+	    Optional<LoginEntity> findByUserNameOrEmail(String username, String email);
+
+	    boolean existsByUsername(String username);
+
+	    boolean existsByEmail(String email);
+}
