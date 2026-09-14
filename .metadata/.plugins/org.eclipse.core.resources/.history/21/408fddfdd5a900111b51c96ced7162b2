@@ -1,5 +1,0 @@
-package com.expenses.portal.repository;
-
-public interface LoginRepository {
-
-}
