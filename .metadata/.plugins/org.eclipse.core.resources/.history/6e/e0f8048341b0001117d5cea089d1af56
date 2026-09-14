@@ -1,5 +1,8 @@
 package com.expenses.portal.dto;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class LoginResponseDTO {
 
     private String token;
