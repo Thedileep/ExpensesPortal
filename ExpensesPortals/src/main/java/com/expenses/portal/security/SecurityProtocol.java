@@ -80,7 +80,7 @@ public class SecurityProtocol {
             .authorizeHttpRequests(auth -> auth
 
                 // Registration and login don't require JWT
-                .requestMatchers("/auth/**")
+                .requestMatchers("/", "/actuator/**", "/api/auth/**")
                 .permitAll()
 
                 // Everything else requires authentication
