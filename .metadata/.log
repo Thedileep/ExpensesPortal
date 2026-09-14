@@ -4444,3 +4444,6 @@ Binding(CTRL+SHIFT+T,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2026-09-14 20:57:24.360
+!MESSAGE DelegatingStreamConnectionProvider - Stopping Boot LS
