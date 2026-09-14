@@ -66,13 +66,17 @@ public class SecurityProtocol {
         http
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session ->
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                session.sessionCreationPolicy(
+                    SessionCreationPolicy.STATELESS
+                )
+            )
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/auth/**","/expenses/**")
+                .requestMatchers("/", "/api/auth/**","/expenses/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
             )
+
             .addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class);
 
         return http.build();

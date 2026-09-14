@@ -61,19 +61,39 @@ public class SecurityProtocol {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http)throws Exception {
+    public SecurityFilterChain securityFilterChain(
+            HttpSecurity http)
+            throws Exception {
 
         http
+            // Disable CSRF because we are using JWT
             .csrf(csrf -> csrf.disable())
+
+            // JWT authentication is stateless
             .sessionManagement(session ->
-                session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                session.sessionCreationPolicy(
+                    SessionCreationPolicy.STATELESS
+                )
+            )
+
+            // Authorization rules
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/", "/auth/**","/expenses/**")
+
+                // Registration and login don't require JWT
+                .requestMatchers("/", "/expenses/**", "/api/auth/**")
                 .permitAll()
+
+                // Everything else requires authentication
                 .anyRequest()
                 .authenticated()
             )
-            .addFilterBefore(jwtAuthenticationFilter,UsernamePasswordAuthenticationFilter.class);
+
+            // Add JWT filter before Spring's
+            // UsernamePasswordAuthenticationFilter
+            .addFilterBefore(
+                    jwtAuthenticationFilter,
+                    UsernamePasswordAuthenticationFilter.class
+            );
 
         return http.build();
     }
